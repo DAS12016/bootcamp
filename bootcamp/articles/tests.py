@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from bootcamp.articles.models import Article
+from bootcamp.articles.models import Article, Tag
 # Create your tests here.
 
 
@@ -41,3 +41,29 @@ class ArticleTestCase(TestCase):
     def testGetComments_None(self):
         self.assertEqual(Article.objects.all()[0].get_comments(),
                          self.article.get_comments())
+
+
+class TagTestCase(TestCase):
+    def setUp(self):
+        User.objects.create(username="user1", password="password")
+        user = User.objects.get(username="user1")
+
+        Article(title="test2", content="test content", create_user=user,
+                status='P').save()
+        article = Article.objects.get(title="test2");
+
+        self.tag = Tag(tag="tag1", article=article)
+        self.tag.save()
+
+    def tearDown(self):
+        for tag in Tag.objects.all():
+            tag.delete()
+
+        for article in Article.objects.all():
+            article.delete()
+
+        for user in User.objects.all():
+            user.delete()
+
+    def testGetPopularTags(self):
+        self.assertTrue("tag1" in str(Tag.get_popular_tags()))
