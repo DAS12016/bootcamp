@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.html import escape
 
+
 class Activity(models.Model):
     FAVORITE = 'F'
     LIKE = 'L'
@@ -36,6 +37,7 @@ class Activity(models.Model):
 #            user = question.user
 #            user.profile.reputation = user.profile.reputation + 5
 #            user.save()
+
 
 class Notification(models.Model):
     LIKED = 'L'

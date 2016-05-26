@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseForbidden, HttpResponseBadRequest, HttpResponse
+from django.http import HttpResponseBadRequest, HttpResponse
 from bootcamp.articles.models import Article, Tag, ArticleComment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from bootcamp.articles.forms import ArticleForm
@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from bootcamp.decorators import ajax_required
 import markdown
 from django.template.loader import render_to_string
+
 
 def _articles(request, articles):
     paginator = Paginator(articles, 10)
@@ -24,15 +25,18 @@ def _articles(request, articles):
         'popular_tags': popular_tags
     })
 
+
 @login_required
 def articles(request):
     all_articles = Article.get_published()
     return _articles(request, all_articles)
 
+
 @login_required
 def article(request, slug):
     article = get_object_or_404(Article, slug=slug, status=Article.PUBLISHED)
     return render(request, 'articles/article.html', {'article': article})
+
 
 @login_required
 def tag(request, tag_name):
@@ -42,6 +46,7 @@ def tag(request, tag_name):
         if tag.article.status == Article.PUBLISHED:
             articles.append(tag.article)
     return _articles(request, articles)
+
 
 @login_required
 def write(request):
@@ -63,10 +68,12 @@ def write(request):
         form = ArticleForm()
     return render(request, 'articles/write.html', {'form': form})
 
+
 @login_required
 def drafts(request):
     drafts = Article.objects.filter(create_user=request.user, status=Article.DRAFT)
     return render(request, 'articles/drafts.html', {'drafts': drafts})
+
 
 @login_required
 def edit(request, id):
@@ -103,6 +110,7 @@ def preview(request):
             return HttpResponseBadRequest()
     except Exception, e:
         return HttpResponseBadRequest()
+
 
 @login_required
 @ajax_required
