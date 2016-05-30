@@ -5,6 +5,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/DAS12016/bootcamp.svg)](https://github.com/DAS12016/bootcamp/issues)
 [![GitHub forks](https://img.shields.io/github/forks/DAS12016/bootcamp.svg)](https://github.com/DAS12016/bootcamp/network)
 [![Jenkins coverage](https://img.shields.io/jenkins/c/https/jenkins.qa.ubuntu.com/address-book-service-utopic-i386-ci.svg?maxAge=2592000)]()
+[![Requires.io](https://img.shields.io/requires/github/celery/celery.svg?maxAge=2592000)](https://github.com/DAS12016/bootcamp)
 
 Bootcamp is an open source **enterprise social network** built with [Python][0] using the [Django Web Framework][1].
 
