@@ -39,7 +39,7 @@ class ArticleTestCase(TestCase):
                          '[<Tag: tag1>, <Tag: tag2>]')
 
     def testGetComments_None(self):
-        self.assertEqual(Article.objects.all()[0].get_comments(),
+        self.assertItemsEqual(Article.objects.all()[0].get_comments(),
                          self.article.get_comments())
 
 
