@@ -1,7 +1,5 @@
 # Bootcamp
 
-[![Build Status](https://travis-ci.org/vitorfs/bootcamp.svg?branch=master)](https://travis-ci.org/vitorfs/bootcamp)
-
 Bootcamp is an open source **enterprise social network** built with [Python][0] using the [Django Web Framework][1].
 
 The project has three basic apps:
@@ -9,6 +7,22 @@ The project has three basic apps:
 * Feed (A Twitter-like microblog)
 * Articles (A collaborative blog)
 * Question & Answers (A Stack Overflow-like platform)
+ 
+
+## Status
+
+[![Build Status](https://travis-ci.org/vitorfs/bootcamp.svg?branch=master)](https://travis-ci.org/vitorfs/bootcamp) 
+[![GitHub stars](https://img.shields.io/github/stars/DAS12016/bootcamp.svg)](https://github.com/DAS12016/bootcamp/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/DAS12016/bootcamp.svg)](https://github.com/DAS12016/bootcamp/issues)
+[![GitHub forks](https://img.shields.io/github/forks/DAS12016/bootcamp.svg)](https://github.com/DAS12016/bootcamp/network)
+[![Jenkins coverage](https://img.shields.io/jenkins/c/https/jenkins.qa.ubuntu.com/address-book-service-utopic-i386-ci.svg?maxAge=2592000)]()
+[![Requires.io](https://img.shields.io/requires/github/celery/celery.svg?maxAge=2592000)](https://github.com/DAS12016/bootcamp)
+
+Source Code Analysis by QuantifiedCode:
+
+[![Code Issues](https://www.quantifiedcode.com/api/v1/project/c46c4b30e6fd4e3eb7cd2cbd7aaaca15/badge.svg)](https://www.quantifiedcode.com/app/project/c46c4b30e6fd4e3eb7cd2cbd7aaaca15)
+
+
 
 ## Feed App
 
