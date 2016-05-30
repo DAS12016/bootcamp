@@ -32,6 +32,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django_nose',
 
     'bootcamp.activities',
     'bootcamp.articles',
@@ -56,6 +57,27 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'bootcamp.urls'
 
 WSGI_APPLICATION = 'bootcamp.wsgi.application'
+
+""" Django-nose documentation:
+http://django-testing-docs.readthedocs.io/en/latest/coverage.html"""
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+# Tell nose to measure coverage on bootcamp app
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=bootcamp',
+    '--cover-html',
+    '--cover-erase',
+    '--cover-html-dir=coverage_html',
+    '--logging-level=CRITICAL',
+    '--with-xunit',
+    '--with-doctest',
+]
+
+# Disable South migrations during test.
+# Instead of running manage.py migrate in the apps managed by South,
+# it runs directly manage.py syncdb.
+SOUTH_TESTS_MIGRATE = False
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

@@ -1,3 +1,6 @@
+# sudo apt-get build-dep python-imaging
+# sudo apt-get install libjpeg62-turbo  libfreetype6 libfreetype6-dev
+
 Django==1.9.4
 dj-database-url==0.3.0
 dj-static==0.0.6
@@ -8,3 +11,6 @@ Pillow==3.1.1
 Markdown==2.4.1
 bleach==1.4
 psycopg2==2.6.1
+django-nose==1.4.3
+pinocchio
+nose
