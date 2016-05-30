@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from django.db.models import Max
+import logging
 
 class Message(models.Model):
     user = models.ForeignKey(User, related_name='+')
@@ -22,6 +23,7 @@ class Message(models.Model):
 
     @staticmethod
     def send_message(from_user, to_user, message):
+        logging.info('Start method send_message')
         message = message[:1000]
         current_user_message = Message(
             from_user=from_user,
@@ -36,8 +38,12 @@ class Message(models.Model):
                 user=to_user).save()
         return current_user_message
 
+    """ Captures all the messages/conversations
+    an user received ordered by the last to the first
+    """
     @staticmethod
     def get_conversations(user):
+        logging.info('Start method get_conversations')
         conversations = Message.objects.filter(
             user=user).values('conversation').annotate(
             last=Max('date')).order_by('-last')
